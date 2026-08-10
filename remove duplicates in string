@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+
+        String[] words = str.split(" ");
+
+        Arrays.sort(words);
+
+        int n = words.length;
+        int i = 1;
+
+        while (i < n) {
+
+            if (words[i].equals(words[i - 1])) {
+
+                int j = i;
+
+                while (j < n - 1) {
+                    words[j] = words[j + 1];
+                    j++;
+                }
+
+                n--;
+            }
+            else {
+                i++;
+            }
+        }
+
+        for (i = 0; i < n; i++) {
+            System.out.print(words[i] + " ");
+        }
+    }
+}
