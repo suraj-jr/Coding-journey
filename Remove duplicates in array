@@ -1,29 +1,30 @@
 import java.util.Scanner;
-public class Main{
-    public static void main(String [] args){
-        Scanner sc= new Scanner(System.in);
-        int[] arr= new int[6];
-        int n=arr.length;
-        System.out.println("enter the array elements");
-         for (int i = 0; i < n; i++) {
-        arr[i]=sc.nextInt();
-    }
-    int i=1;
-    while(i<n){
-        if(arr[i]==arr[i-1]){
-            int j=i;
-            while(j<n-1){
-                  arr[j]=arr[j+1];
-                  j++;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int[] arr = new int[6];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int left = 0;
+        int right = 1;
+
+        while (right < arr.length) {
+
+            if (arr[left] != arr[right]) {
+                left++;
+                arr[left] = arr[right];
             }
-            n--;
+
+            right++;
         }
-        
-        else{
-            i++;
-        }
-    }
-          for (i = 0; i < n; i++) {
+
+        for (int i = 0; i <= left; i++) {
             System.out.print(arr[i] + " ");
         }
     }
