@@ -1,0 +1,35 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc= new Scanner(System.in);
+        System.out.println("enter the array elements");
+        int[] arr= new int[6];
+         int n=arr.length;
+        for(int i=0; i<n; i++){
+        arr[i]=sc.nextInt();
+       
+    }
+ int f = 0;
+int s = 1;
+int t = 2;
+
+int sum = arr[f] + arr[s] + arr[t];
+int maxsum = sum;
+
+while(t < n - 1) {
+
+    sum = sum - arr[f] + arr[t + 1];
+
+    f++;
+    s++;
+    t++;
+
+    if(sum > maxsum) {
+        maxsum = sum;
+    }
+}
+
+System.out.println(maxsum);
+       
+    }
+}
