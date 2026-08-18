@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+
+        int left = 0;
+        int right = 0;
+
+        int maxcount = 0;
+        String longest = "";
+
+        StringBuilder sb = new StringBuilder();
+
+        while (right < a.length()) {
+
+            char current = a.charAt(right);
+
+            int i = 0;
+
+            // Check current character against
+            // every character in StringBuilder
+            while (i < sb.length() && sb.charAt(i) != current) {
+                i++;
+            }
+
+            if (i == sb.length()) {
+
+                // No duplicate
+                sb.append(current);
+                right++;
+
+                if (sb.length() > maxcount) {
+                    maxcount = sb.length();
+                    longest = sb.toString();
+                }
+
+            } else {
+
+                // Duplicate found
+                sb.deleteCharAt(0);
+                left++;
+            }
+        }
+
+        System.out.println("No of longest substring: " + maxcount);
+        System.out.println("Longest substring is: " + longest);
+    }
+}
