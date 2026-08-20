@@ -1,0 +1,63 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        String b = sc.nextLine();
+        int left = 0;
+        int right = 0;
+        StringBuilder sb = new StringBuilder();
+        StringBuilder min = new StringBuilder();
+        while (right < a.length()) {
+            sb.append(a.charAt(right));
+            int countA = 0;
+            int countB = 0;
+            int countC = 0;
+            for (int i = 0; i < sb.length(); i++) {
+                if (sb.charAt(i) == b.charAt(0)) {
+                    countA++;
+                }
+                if (sb.charAt(i) == b.charAt(1)) {
+                    countB++;
+                }
+                if (sb.charAt(i) == b.charAt(2)) {
+                    countC++;
+                }
+            }
+            if (countA > 0 && countB > 0 && countC > 0) {
+                while (countA > 0 && countB > 0 && countC > 0) {
+                char remove = sb.charAt(0);
+                    sb.deleteCharAt(0);
+                    left++;
+                    countA = 0;
+                    countB = 0;
+                    countC = 0;
+                    for (int i = 0; i < sb.length(); i++) {  
+                        if (sb.charAt(i) == b.charAt(0)) {
+                            countA++;
+                        }
+
+                        if (sb.charAt(i) == b.charAt(1)) {
+                            countB++;
+                        }
+
+                        if (sb.charAt(i) == b.charAt(2)) {
+                            countC++;
+                        }
+                    }
+                }
+                sb.insert(0, remove);
+                left--;
+
+                if (min.length() == 0 || sb.length() < min.length()) {
+                    min.setLength(0);
+                    min.append(sb);
+                }
+            }
+
+            right++;
+        }
+
+        System.out.println(min);
+    }
+}
