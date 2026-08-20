@@ -1,0 +1,29 @@
+    public static void main(String[] args){
+        Scanner sc= new Scanner(System.in);
+        System.out.println("enter the string value");
+        String a= sc.nextLine();
+        int left=0,right=0;
+        int maxcount=0;
+        String longest=" ";
+        StringBuilder sb= new StringBuilder();
+              while(right < a.length()){
+             char ch= a.charAt(right);
+            if(sb.charAt(0)==ch && sb.length()==0){
+                sb.append(ch);
+                right++;
+                if(sb.length() > maxcount){
+                    maxcount=sb.length();
+                    longest=sb.toString();
+                }
+            }
+            else{
+                left=right;
+                sb.setLength(0);
+            }
+            
+        }
+        System.out.println("longest count of substring is" +maxcount);
+           System.out.println("longest substring is" +longest);
+        
+    }
+}
