@@ -1,0 +1,49 @@
+ import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc= new Scanner(System.in);
+        int[] arr= new int[5];
+        System.out.println("enter the array elements");
+        for(int i=0; i<arr.length; i++){
+        arr[i]=sc.nextInt();
+    }
+    int right=1,left=0,max=0;
+    if(arr[right]>arr[left]){
+        max=arr[right];
+    }
+        else{
+            max=arr[left];
+        }
+        right++;
+        while(right<arr.length){
+        if(arr[right]>max){
+            max=arr[right];
+            right++;
+        }
+            else{
+                right++;
+            }
+    }
+    System.out.println(max);
+    right=1;
+    left=0;
+    int secmax=0;
+       if(arr[right]>arr[left]){
+        secmax=arr[right];
+    }
+        else{
+            secmax=arr[left];
+        }
+        right++;
+          while(right<arr.length){
+           if(arr[right]!=max  && arr[right] >secmax){
+            secmax=arr[right];
+            right++;
+           }
+           else{
+            right++;
+    }
+          }
+              System.out.println(secmax);
+}
+} 
